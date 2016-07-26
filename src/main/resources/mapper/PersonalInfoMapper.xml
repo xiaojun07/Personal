@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.Personal.mapper.PersonalInfoMapper">
+
+	<sql id="selectValues"> 
+		SELECT p_personal_info.id,p_personal_info.`name`,p_personal_info.phone,p_personal_info.level_id,p_level.level_name,
+		p_personal_info.company_id,p_company.company_name,qq,weixin,email,qualification,promotebusiness,address,path
+		FROM p_personal_info 
+		LEFT JOIN p_image ON p_image.personal_id =p_personal_info.id
+		LEFT JOIN p_company ON p_company.id =p_personal_info.company_id
+		LEFT JOIN p_level ON p_level.id =p_personal_info.level_id
+	</sql>
+	<select id="find" parameterType="PersonalInfo" resultType="PersonalInfoVO">
+	   <include refid="selectValues"/> 
+		WHERE 1=1
+		<if test="phone !=null"> AND phone=#{phone} </if>
+		<if test="id !=0 "> AND id=#{id}</if>
+	</select>
+</mapper>

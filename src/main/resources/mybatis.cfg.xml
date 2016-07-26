@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD  Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<!-- 类的别名，定义别名后使用时不需要一大串包名的类全名 -->
+	<typeAliases>
+		<typeAlias alias="PersonalInfo" type="com.Personal.domain.PersonalInfo" />
+		<typeAlias alias="PersonalInfoVO" type="com.Personal.vo.PersonalInfoVO" />
+
+	</typeAliases>
+</configuration>
